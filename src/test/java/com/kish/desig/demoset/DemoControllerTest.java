@@ -1,5 +1,6 @@
 package com.kish.desig.demoset;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -29,6 +30,7 @@ class DemoControllerTest {
     ReservationJpa reservationJpa;
 
     @Test
+    @DisplayName("get_about_us")
     void aboutUs() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/aboutus")))
                 .andExpect(status().isOk())
@@ -37,6 +39,7 @@ class DemoControllerTest {
 
 
     @Test
+    @DisplayName("get_reservations_by_lastname_karuneegar")
     void getReservations() throws Exception
     {
         Mockito.when(reservationJpa.findAllByLastName(anyString()))
